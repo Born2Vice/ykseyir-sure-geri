@@ -10,8 +10,9 @@ interface TimeLeft {
 }
 
 const CountdownTimer = () => {
-  // YKS exam date - June 14, 2025 (adjust as needed)
-  const targetDate = new Date("2025-06-14T10:15:00").getTime();
+  // YKS exam date - June 14, 2025, 10:15 (Turkey time)
+  // Using Date constructor with parameters to avoid timezone parsing issues
+  const targetDate = new Date(2025, 5, 14, 10, 15, 0).getTime(); // Month is 0-indexed (5 = June)
 
   const calculateTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
@@ -40,7 +41,7 @@ const CountdownTimer = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const totalDays = Math.floor((targetDate - new Date("2024-06-14T10:15:00").getTime()) / (1000 * 60 * 60 * 24));
+  const totalDays = Math.floor((targetDate - new Date(2024, 5, 14, 10, 15, 0).getTime()) / (1000 * 60 * 60 * 24));
   const progress = ((totalDays - timeLeft.days) / totalDays) * 100;
 
   const TimeUnit = ({ value, label }: { value: number; label: string }) => (

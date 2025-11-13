@@ -44,7 +44,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30 flex items-center justify-center p-4 sm:p-6">
       <div className="w-full max-w-5xl space-y-8">
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="flex flex-col items-center gap-4 w-full">
           <div className="flex items-center gap-2">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-lg">
               <span className="text-xl sm:text-2xl">📚</span>
@@ -52,16 +52,14 @@ const Index = () => {
             <h2 className="text-lg sm:text-xl font-semibold text-foreground">YKS Geri Sayım</h2>
           </div>
           
-          {isInstallable && (
-            <Button
-              onClick={handleInstall}
-              variant="default"
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg"
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Uygulamayı Yükle
-            </Button>
-          )}
+          <Button
+            onClick={handleInstall}
+            variant="default"
+            className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 shadow-lg w-full sm:w-auto"
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Ana Ekrana Ekle
+          </Button>
         </div>
 
         <div className="bg-gradient-to-br from-card to-card/50 backdrop-blur-sm rounded-3xl shadow-2xl border-2 border-border/50 p-6 sm:p-10 md:p-12">
